@@ -11,25 +11,26 @@ export default function PostForm() {
     e.preventDefault();
     const value = e.target.inputText.value;
     let [id, title] = prepareToPost(value);
-
-    fetch('http://localhost:3000/posts', {
-      method: 'post',
-      body: JSON.stringify({
-        id: id,
-        title: title,
-      }),
-    })
-      .then((response) => {
-        console.log('response: ', response);
-        return response.json();
+    if (id && title) {
+      fetch('http://localhost:3000/posts', {
+        method: 'post',
+        body: JSON.stringify({
+          id: id,
+          title: title,
+        }),
       })
-      .then((json) => {
-        console.log('json: ', json);
-      });
+        .then((response) => {
+          console.log('response: ', response);
+          return response.json();
+        })
+        .then((json) => {
+          console.log('json: ', json);
+        });
+    }
   }
   return (
     <form onSubmit={handleSubmit}>
-      <p>Введите:</p>
+      <h3>Добавить пост:</h3>
       <input type="text" name="inputText" />
       <button type="submit">Отправить</button>
     </form>

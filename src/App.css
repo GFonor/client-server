@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  width: 1060px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -46,7 +45,8 @@
 
 .main {
   display: flex;
-  gap: 300px;
+  justify-content: space-between;
+
 }
 
 .postForm {
@@ -56,5 +56,5 @@
 
 .info {
   border: 3px green solid;
-  padding: 50px 100px
+  padding: 50px 100px;
 }
